@@ -87,6 +87,11 @@ const styles = StyleSheet.create({
     fontSize: hp('5%'),
     padding: 15,
   },
+  sortDataRemove: {
+    fontSize: hp('5%'),
+    padding: 15,
+    color: colors.red,
+  },
 });
 
 export default styles;

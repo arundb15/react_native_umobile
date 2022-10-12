@@ -6,20 +6,36 @@ import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export default class header extends Component {
   render() {
-    const {Title, goBack, rightIcon} = this.props;
+    const {Title, goBack, rightIcon, headerId} = this.props;
 
     return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={goBack}>
-          <View style={styles.iconBg}>
-            <Icon name="arrow-left" size={25} color={colors.white} />
+      <>
+        {headerId == 1 ? (
+          <View style={styles.container}>
+            <TouchableOpacity onPress={goBack}>
+              <View style={styles.iconBg}>
+                <Icon name="arrow-left" size={25} color={colors.white} />
+              </View>
+            </TouchableOpacity>
+            <Text style={styles.title}>{Title}</Text>
+            <View style={styles.iconBg1}>
+              <Icon name={rightIcon} size={25} color={colors.white} />
+            </View>
           </View>
-        </TouchableOpacity>
-        <Text style={styles.title}>{Title}</Text>
-        <View style={styles.iconBg1}>
-          <Icon name={rightIcon} size={25} color={colors.white} />
-        </View>
-      </View>
+        ) : headerId == 2 ? (
+          <View style={styles.container}>
+            <TouchableOpacity onPress={goBack}>
+              <View style={styles.iconBg}>
+                <Icon name="arrow-left" size={25} color={colors.white} />
+              </View>
+            </TouchableOpacity>
+            <Text style={styles.title1}>{Title}</Text>
+            <View>
+              <Icon name={rightIcon} size={25} color={colors.white} />
+            </View>
+          </View>
+        ) : null}
+      </>
     );
   }
 }
@@ -54,5 +70,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: hp('2%'),
     color: colors.white,
+  },
+  title1: {
+    fontSize: hp('3%'),
+    fontWeight: 'bold',
+
+    textAlign: 'center',
+    marginTop: hp('2%'),
+    color: colors.gliterblack,
   },
 });

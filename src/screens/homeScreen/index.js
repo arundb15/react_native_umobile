@@ -8,6 +8,7 @@ import {
   Dimensions,
   FlatList,
   PermissionsAndroid,
+  ScrollView,
 } from 'react-native';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Header from '../../components/header/header';
@@ -353,6 +354,11 @@ class home extends Component {
                     speed1={item.speed1}
                     valdity={item.valdity}
                     valdity1={item.valdity1}
+                    onPress={() =>
+                      this.props.navigation.navigate('payment', {
+                        price: item.price,
+                      })
+                    }
                   />
                   // <Text
                   //   style={{
@@ -381,6 +387,11 @@ class home extends Component {
                   speed1={item.speed1}
                   valdity={item.valdity}
                   valdity1={item.valdity1}
+                  onPress={() =>
+                    this.props.navigation.navigate('payment', {
+                      price: item.price,
+                    })
+                  }
                 />
               );
             })}
@@ -398,6 +409,11 @@ class home extends Component {
                   speed1={item.speed1}
                   valdity={item.valdity}
                   valdity1={item.valdity1}
+                  onPress={() =>
+                    this.props.navigation.navigate('payment', {
+                      price: item.price,
+                    })
+                  }
                 />
               );
             })}
@@ -432,7 +448,7 @@ class home extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Header Title="recharge" rightIcon="help-circle" />
+        <Header Title="recharge" rightIcon="help-circle" headerId={1} />
         <View style={styles.headerCard}>
           <View style={styles.headerCardContainer}>
             <View>
@@ -558,46 +574,58 @@ class home extends Component {
                 alignItems: 'center',
               },
             }}>
-            <TouchableOpacity
-              onPress={() =>
-                this.setState(
-                  {speedStart: 0, speedEnd: 50},
-                  this.priceFilter,
-                  this.RBSheet.close(),
-                )
-              }>
-              <Text style={styles.sortData}>0-50 mbps</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() =>
-                this.setState(
-                  {speedStart: 50, speedEnd: 100},
-                  this.priceFilter,
-                  this.RBSheet.close(),
-                )
-              }>
-              <Text style={styles.sortData}>50-100 mbps</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() =>
-                this.setState(
-                  {speedStart: 100, speedEnd: 200},
-                  this.priceFilter,
-                  this.RBSheet.close(),
-                )
-              }>
-              <Text style={styles.sortData}>100-200 mbps</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() =>
-                this.setState(
-                  {speedStart: 100, speedEnd: 200},
-                  this.priceFilter,
-                  this.RBSheet.close(),
-                )
-              }>
-              <Text style={styles.sortData}>200-500 mbps</Text>
-            </TouchableOpacity>
+            <ScrollView>
+              <TouchableOpacity
+                onPress={() =>
+                  this.setState(
+                    {speedStart: 0, speedEnd: 50},
+                    this.priceFilter,
+                    this.RBSheet.close(),
+                  )
+                }>
+                <Text style={styles.sortData}>0-50 mbps</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  this.setState(
+                    {speedStart: 50, speedEnd: 100},
+                    this.priceFilter,
+                    this.RBSheet.close(),
+                  )
+                }>
+                <Text style={styles.sortData}>50-100 mbps</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  this.setState(
+                    {speedStart: 100, speedEnd: 200},
+                    this.priceFilter,
+                    this.RBSheet.close(),
+                  )
+                }>
+                <Text style={styles.sortData}>100-200 mbps</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  this.setState(
+                    {speedStart: 100, speedEnd: 200},
+                    this.priceFilter,
+                    this.RBSheet.close(),
+                  )
+                }>
+                <Text style={styles.sortData}>200-500 mbps</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() =>
+                  this.setState(
+                    {speedStart: 0, speedEnd: 0},
+                    this.priceFilter,
+                    this.RBSheet.close(),
+                  )
+                }>
+                <Text style={styles.sortDataRemove}>remove</Text>
+              </TouchableOpacity>
+            </ScrollView>
           </RBSheet>
         </View>
       </SafeAreaView>

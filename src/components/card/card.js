@@ -19,10 +19,11 @@ export default class card extends Component {
       speed1,
       valdity,
       valdity1,
+      onPress,
     } = this.props;
 
     return (
-      <TouchableOpacity style={styles.headerCard}>
+      <TouchableOpacity style={styles.headerCard} onPress={onPress}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <View>
             <Text style={styles.text1}>{price}</Text>
